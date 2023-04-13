@@ -16,7 +16,7 @@ form.addEventListener('submit', (e) => {
 
 function callAPI(city, country){
     const apiId = '2aea6b1306f56d9e4f96e4fe3f1424fe';
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiId}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiId}&lang=es`;
 
     fetch(url)
         .then(data => {
@@ -46,10 +46,13 @@ function showWeather(data){
     const content = document.createElement('div');
     content.innerHTML = `
         <h5>Clima en ${name}</h5>
-        <img src="http://openweathermap.org/img/wn/${arr.icon}@2x.png" alt="icon">
+        <img src="https://openweathermap.org/img/wn/${arr.icon}@2x.png" alt="icon">
         <h2>${degrees}°C</h2>
+        <p>Locación: ${data.name}</p>
         <p>Max: ${max}°C</p>
         <p>Min: ${min}°C</p>
+        <p>Humedad: ${data.main.humidity}%</p>
+        <p>Cielo: ${data.weather[0].description}</p>
     `;
 
     result.appendChild(content);
