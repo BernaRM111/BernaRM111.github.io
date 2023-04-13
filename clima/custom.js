@@ -51,6 +51,7 @@ function showWeather(data){
         <p>Locación: ${data.name}</p>
         <p>Max: ${max}°C</p>
         <p>Min: ${min}°C</p>
+        <p>Velocidad del viento: ${data.wind.speed} km/h</p>
         <p>Humedad: ${data.main.humidity}%</p>
         <p>Cielo: ${data.weather[0].description}</p>
     `;
